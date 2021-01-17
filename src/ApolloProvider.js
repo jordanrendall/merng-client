@@ -8,7 +8,14 @@ import {
   ApolloProvider,
   concat,
 } from '@apollo/client';
-const httpLink = new HttpLink({ uri: 'http://localhost:5000' });
+const dotenv = require('dotenv').config();
+
+const httpLink = new HttpLink({
+  uri:
+    process.env.NODE_ENV === 'production'
+      ? process.env.BACKEND_URL_PROD
+      : process.env.BACKEND_URL_DEV,
+});
 
 const authMiddleware = new ApolloLink((operation, forward) => {
   operation.setContext(() => {
