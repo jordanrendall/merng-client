@@ -2,12 +2,10 @@ import React, { useContext, useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 
 import { Button, Confirm, Icon } from 'semantic-ui-react';
-import { AuthContext } from '../context/auth';
 import { FETCH_POSTS_QUERY } from '../util/graphql';
 import MyPopup from '../util/MyPopup';
 
 const DeleteButton = ({ postId, commentId, callback }) => {
-  const { user } = useContext(AuthContext);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const mutation = commentId ? DELETE_COMMENT_MUTATION : DELETE_POST_MUTATION;
   const [deletePostOrComment] = useMutation(mutation, {

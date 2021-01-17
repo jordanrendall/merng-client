@@ -8,7 +8,7 @@ import {
   ApolloProvider,
   concat,
 } from '@apollo/client';
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 
 const httpLink = new HttpLink({
   uri:
