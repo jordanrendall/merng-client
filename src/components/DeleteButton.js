@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 
 import { Button, Confirm, Icon } from 'semantic-ui-react';
